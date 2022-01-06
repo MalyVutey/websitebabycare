@@ -12,7 +12,7 @@ import {
  import { Grid, GridItem,Image, Text,Center,Container,SimpleGrid  } from "@chakra-ui/react"
 function ReadMore({data}) {
  const { isOpen, onOpen, onClose } = useDisclosure()
-console.log(data)
+
  return (
   <>
    <Center w="100%" as="button" bg="pink.500" 

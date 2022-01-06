@@ -5,9 +5,10 @@ import SimpleImageSlider from "react-simple-image-slider";
 import { Center,Container } from "@chakra-ui/react";
 import Image from 'next/image'
 import logo from "../image/logo.jpg"
+import img1  from "../image/1.jpg"
 const Layout = ({children}) => {
   const images = [
-    { url: "http://cdn.shopify.com/s/files/1/0507/8738/5531/products/babycare101_1200x1200.png?v=1610962830" },
+    { url: img1 },
     { url: "https://www.southcountyhealth.org/media/service-line-photos/home-health/baby-mother-sleep-home.jpg" },
     { url: "https://calendarmedia.blob.core.windows.net/assets/bb1f4c99-1fc3-4f23-ac0e-de7422969941.jpg" },
     { url: "https://www.nykaa.com/beauty-blog/wp-content/uploads/images/issue186/baby-products_100.jpg" },

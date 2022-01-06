@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
 import { Grid, GridItem,Box, Text,Center,Container,SimpleGrid  } from "@chakra-ui/react"
-import nurs  from '../../.next/cache/images/nurs.jpg'
-import nurs1  from '../../.next/cache/images/nurs1.jpg'
+import nurs from '../../image/nurs.jpeg'
+import nurs1 from '../../image/nurs.jpeg'
 import img1 from '../../image/img1.jpg'
 import img2 from '../../image/img2.jpg'
 import img3 from '../../image/img3.jpg'

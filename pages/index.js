@@ -2,9 +2,9 @@ import react ,{useState} from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Image from 'next/image'
-import img  from '../.next/cache/images/test.jpg'
-import nurs  from '../.next/cache/images/nurs.jpg'
-import nurs1  from '../.next/cache/images/nurs1.jpg'
+import img from '../image/img1.jpg'
+import nurs from '../image/nurs.jpeg'
+import nurs1 from '../image/img1.jpg'
 import img1 from '../image/img1.jpg'
 import img2 from '../image/img2.jpg'
 import img3 from '../image/img3.jpg'
@@ -68,7 +68,7 @@ export default function Home() {
         </GridItem>
         {/* my work  */}
         <GridItem colSpan={3} boxShadow="md" p="6" rounded="md" bg="white">
-         <Image src={nurs1} alt="Segun Adebayo"/>
+         <Image src={nurs} alt="Segun Adebayo"/>
         </GridItem>
         <GridItem colSpan={3} boxShadow="md" p="6" rounded="md" bg="white">
           <Center h="50px" color="white">
@@ -87,12 +87,12 @@ export default function Home() {
           {/* <Center  borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="10" color="white">
             <SupportOffer />
           </Center> */}
-          <Center borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="10" color="white">
+          <Center  bg="pink.500"  as="button" boxShadow="md"  h="10" color="white">
             <OutProject/>
           </Center>
-          <Center borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="10" color="white">
+          {/* <Center borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="10" color="white">
             <FormEmail title="Contact" />
-          </Center>
+          </Center> */}
       </SimpleGrid>
       {/* packages available  */}
       <SimpleGrid minChildWidth="120px" spacing="40px" mt="20px">
@@ -151,37 +151,37 @@ export default function Home() {
           <Image h={200}   src={img1} alt="Segun Adebayo"/>
           )}
           </Center>
-          <Center  borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="200" color="white">
+          <Center  bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
             <Image h={200} src={img2} alt="Segun Adebayo"/>
           </Center>
-          <Center  borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="200" color="white">
+          <Center   bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
             <Image h={200} src={img3} alt="Segun Adebayo"/>
           </Center>
-          <Center  borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="200" color="white">
+          <Center   bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
             <Image h={200} src={img4} alt="Segun Adebayo"/>
           </Center>
-          <Center  borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="200" color="white">
+          <Center   bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
             <Image h={200} src={img5} alt="Segun Adebayo"/>
           </Center>
-          <Center  borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="200" color="white">
+          <Center   bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
             <Image h={200} src={img6} alt="Segun Adebayo"/>
           </Center>
-          <Center  borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="200" color="white">
+          <Center   bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
             <Image h={200} src={img7} alt="Segun Adebayo"/>
           </Center>
-          <Center  borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="200" color="white">
+          <Center  bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
            <Image h={200} src={img8} alt="Segun Adebayo"/>
           </Center>
-          <Center  borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="200" color="white">
+          <Center   bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
             <Image h={200} src={img9} alt="Segun Adebayo"/>
           </Center>
-          <Center  borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="200" color="white">
+          <Center   bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
             <Image h={200} src={img1} alt="Segun Adebayo"/>
           </Center>
-          <Center  borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="200" color="white">
+          <Center   bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
             <Image h={200} src={img2} alt="Segun Adebayo"/>
           </Center>
-          <Center  borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="200" color="white">
+          <Center   bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
             <Image h={200} src={img3} alt="Segun Adebayo"/>
           </Center>
       </SimpleGrid>

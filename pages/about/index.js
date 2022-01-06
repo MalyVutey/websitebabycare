@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
 import { Wrap, WrapItem } from "@chakra-ui/react"
-import { Grid, GridItem,Box, Text,Center,Image } from "@chakra-ui/react"
-import nurs  from '../../.next/cache/images/nurs.jpg'
-import nurs1  from '../../.next/cache/images/nurs1.jpg'
+import Image from 'next/image'
+import { Grid, GridItem,Box, Text,Center } from "@chakra-ui/react"
+import nurs from '../../image/nurs.jpeg'
+import nurs1 from '../../image/nurs.jpeg'
 import img2 from '../../image/img2.jpg'
 import { Flex, Spacer,Square } from "@chakra-ui/react"
 const About = () => {
@@ -18,7 +19,7 @@ const About = () => {
       <Image
           borderRadius="full"
           boxSize="300px"
-          src="https://bit.ly/sage-adebayo"
+          src={nurs}
           alt="Segun Adebayo"
         />
       </Square>
