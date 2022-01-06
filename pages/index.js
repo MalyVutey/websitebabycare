@@ -22,11 +22,29 @@ import { FormProvider } from 'antd/lib/form/context'
 import FormEmail from '../components/Model/contact/FormEmail'
 import SupportOffer from '../components/Model/home/SupportOffer'
 import OutProject from '../components/Model/home/OutProject'
-export default function Home() {
+import { createClient } from 'contentful'
+export async function getstaticProps(){
+  const client = createClient({
+    // space: process.env.CONTENFULL_SPACE_ID,
+    // accessToken:process.env.CONTENFULL_ACCESS_KE,
+    space: "tv804lyjxtpt",
+    accessToken:"uJSHOdqNGgrmX6l6TxTUhSbbStRnK4qzB-GR8zUpwr0",
+
+  })
+  const res = await client.getEntries({ content_type: "nickywebsite"})
+
+  return {
+    props: {
+      nickywebsite: res.items
+    }
+  }
+}
+export default function Home(props) {
   // #FF69B4
   const [isHovering, setIsHovered] = useState(false);
   const onMouseEnter = () => setIsHovered(true);
   const onMouseLeave = () => setIsHovered(false);
+  console.log(props)
   const data1 = {
     imageUrl: "https://bit.ly/2Z4KKcF",
     detail: " Data1 are many benefits to a joint design and development system. Not onlydoes it bring benefits to the design team, but it also brings benefits to engineering teams. It makes sure that our experiences have a consistent lookand feel, not just in our design specs, but in production",
