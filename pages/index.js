@@ -24,27 +24,29 @@ import SupportOffer from '../components/Model/home/SupportOffer'
 import OutProject from '../components/Model/home/OutProject'
 import { createClient } from 'contentful'
 import { Image } from '@chakra-ui/react'
+
+import React from 'react'
 export async function getStaticProps() {
   const client = createClient({
     space: "tv804lyjxtpt",
     accessToken:"uJSHOdqNGgrmX6l6TxTUhSbbStRnK4qzB-GR8zUpwr0",
   })
-  const res = await client.getEntries({ content_type: "nickywebsite",content_type: "supportICanOffer" })
+  const res = await client.getEntries({content_type: "supportICanOffer" })
 
   return {
     props: {
-      nickywebsites: res.items,
       supportICanOffers: res.items
     },
     revalidate: 1
   }
 }
-export default function Home({nickywebsites,supportICanOffers}) {
+export default function Home({supportICanOffers}) {
   // #FF69B4
   const [isHovering, setIsHovered] = useState(false);
   const onMouseEnter = () => setIsHovered(true);
   const onMouseLeave = () => setIsHovered(false);
-  console.log(supportICanOffers)
+
+
 
 
   const data1 = {
@@ -76,7 +78,7 @@ export default function Home({nickywebsites,supportICanOffers}) {
       <Grid h="500px" templateRows="repeat(2, 1fr)" templateColumns="repeat(5, 1fr)" gap={4}mb={10}>
         {/* About */}
         <GridItem rowSpan={2} colSpan={2} boxShadow="md" p="6" rounded="md" bg="white">
-          <Image  src={nickywebsites[0].fields.image.fields.file.url} alt="Segun Adebayo"/>
+          {/* <Image  src={nickywebsites[0].fields.image.fields.file.url} alt="Segun Adebayo"/> */}
           <Center h="50px" color="white">
             <Text fontSize="2xl" color="black" fontWeight="extrabold">
               {/* {nickywebsites[0].fields.title} */}
@@ -126,7 +128,7 @@ export default function Home({nickywebsites,supportICanOffers}) {
             <Box h="70px" borderBottomRadius="md" color="pink.500" p="5px">
               <Center fontWeight="extrabold">{item.fields.title} </Center>
               <Box textAlign="justify">
-                {(data1.detail).substring(0, 200)}...
+                {item.fields.body.substring(0, 200)}...
               </Box>
               <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
                 <ReadMore data={data1}/>
