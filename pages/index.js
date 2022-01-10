@@ -1,7 +1,7 @@
 import react ,{useState} from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Image from 'next/image'
+// import Image from 'next/image'
 import img from '../image/img1.jpg'
 import nurs from '../image/nurs.jpeg'
 import nurs1 from '../image/img1.jpg'
@@ -23,28 +23,30 @@ import FormEmail from '../components/Model/contact/FormEmail'
 import SupportOffer from '../components/Model/home/SupportOffer'
 import OutProject from '../components/Model/home/OutProject'
 import { createClient } from 'contentful'
-export async function getstaticProps(){
+import { Image } from '@chakra-ui/react'
+export async function getStaticProps() {
   const client = createClient({
-    // space: process.env.CONTENFULL_SPACE_ID,
-    // accessToken:process.env.CONTENFULL_ACCESS_KE,
     space: "tv804lyjxtpt",
     accessToken:"uJSHOdqNGgrmX6l6TxTUhSbbStRnK4qzB-GR8zUpwr0",
-
   })
-  const res = await client.getEntries({ content_type: "nickywebsite"})
+  const res = await client.getEntries({ content_type: "nickywebsite",content_type: "supportICanOffer" })
 
   return {
     props: {
-      nickywebsite: res.items
-    }
+      nickywebsites: res.items,
+      supportICanOffers: res.items
+    },
+    revalidate: 1
   }
 }
-export default function Home(props) {
+export default function Home({nickywebsites,supportICanOffers}) {
   // #FF69B4
   const [isHovering, setIsHovered] = useState(false);
   const onMouseEnter = () => setIsHovered(true);
   const onMouseLeave = () => setIsHovered(false);
-  console.log(props)
+  console.log(supportICanOffers)
+
+
   const data1 = {
     imageUrl: "https://bit.ly/2Z4KKcF",
     detail: " Data1 are many benefits to a joint design and development system. Not onlydoes it bring benefits to the design team, but it also brings benefits to engineering teams. It makes sure that our experiences have a consistent lookand feel, not just in our design specs, but in production",
@@ -74,29 +76,28 @@ export default function Home(props) {
       <Grid h="500px" templateRows="repeat(2, 1fr)" templateColumns="repeat(5, 1fr)" gap={4}mb={10}>
         {/* About */}
         <GridItem rowSpan={2} colSpan={2} boxShadow="md" p="6" rounded="md" bg="white">
-          <Image  src={nurs} alt="Segun Adebayo"/>
+          <Image  src={nickywebsites[0].fields.image.fields.file.url} alt="Segun Adebayo"/>
           <Center h="50px" color="white">
-            <Text fontSize="2xl" color="black" fontWeight="extrabold">About Me</Text> 
+            <Text fontSize="2xl" color="black" fontWeight="extrabold">
+              {/* {nickywebsites[0].fields.title} */}
+              </Text> 
           </Center>
           <Container  textAlign="justify">
-            There are many benefits to a joint design and development system. Not only
-            does it bring benefits to the design team, but it also brings benefits to
-            engineering teams.
+           {/* {nickywebsites[0].fields.body} */}
           </Container>
         </GridItem>
         {/* my work  */}
         <GridItem colSpan={3} boxShadow="md" p="6" rounded="md" bg="white">
-         <Image src={nurs} alt="Segun Adebayo"/>
+          {/* <Image src={nickywebsites[1].fields.image.fields.file.url} alt='Dan Abramov' /> */}
         </GridItem>
         <GridItem colSpan={3} boxShadow="md" p="6" rounded="md" bg="white">
           <Center h="50px" color="white">
-           <Text fontSize="2xl" color="black" fontWeight="extrabold">My Work</Text> 
+           <Text fontSize="2xl" color="black" fontWeight="extrabold">
+             {/* {nickywebsites[1].fields.title} */}
+             </Text> 
           </Center>
           <Container  textAlign="justify">
-            There are many benefits to a joint design and development system. Not only
-            does it bring benefits to the design team, but it also brings benefits to
-            engineering teams. It makes sure that our experiences have a consistent look
-            and feel, not just in our design specs, but in production
+            {/* {nickywebsites[1].fields.body} */}
           </Container>
         </GridItem>
       </Grid> 
@@ -118,44 +119,23 @@ export default function Home(props) {
       </SimpleGrid>
       <SimpleGrid minChildWidth="120px" spacing="40px" mt="20px">
         {/* cart one */}
-        <Box boxShadow="md" bg="#FFFF" height="500px" rounded="md" >
-          <Box><Image h={200} src={img2} alt="Segun Adebayo"/></Box>
-          <Box h="70px" borderBottomRadius="md" color="pink.500" p="5px">
-            <Center fontWeight="extrabold">Antenatal</Center>
-            <Box textAlign="justify">
-              {(data1.detail).substring(0, 200)}...
+        {supportICanOffers?.map((item)=>{
+          return(
+            <Box boxShadow="md" bg="#FFFF" height="500px" rounded="md" >
+            <Box><Image h={200} src={item.fields.image.fields.file.url} alt="Segun Adebayo"/></Box>
+            <Box h="70px" borderBottomRadius="md" color="pink.500" p="5px">
+              <Center fontWeight="extrabold">{item.fields.title} </Center>
+              <Box textAlign="justify">
+                {(data1.detail).substring(0, 200)}...
+              </Box>
+              <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
+                <ReadMore data={data1}/>
+              </Center>
             </Box>
-            <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
-              <ReadMore data={data1}/>
-            </Center>
           </Box>
-        </Box>
-        {/* cart two */}
-        <Box boxShadow="md" bg="#FFFF" height="500px" rounded="md">
-          <Box><Image h={200} src={img3} alt="Segun Adebayo"/></Box>
-          <Box h="70px" borderBottomRadius="md" color="pink.500" p="5px">
-            <Center fontWeight="extrabold">Postnatal & Infant support</Center>
-            <Box textAlign="justify">
-            {(data2.detail).substring(0, 200)}...
-            </Box>
-            <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
-              <ReadMore data={data2}/>
-            </Center>
-          </Box>
-        </Box>
-        {/* cart three */}
-        <Box boxShadow="md" bg="#FFFF" height="500px" rounded="md">
-          <Box><Image h={200} src={img4} alt="Segun Adebayo"/></Box>
-          <Box h="70px" borderBottomRadius="md" color="pink.500" p="5px">
-            <Center fontWeight="extrabold">Birth support</Center>
-            <Box textAlign="justify">
-            {(data3.detail).substring(0, 200)}...
-            </Box>
-            <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
-              <ReadMore data={data3}/>
-            </Center>
-          </Box>
-        </Box>
+          )
+        })}
+        {/* cart end */}
       </SimpleGrid>
       {/* Gallery */}
       <SimpleGrid minChildWidth="120px" spacing="40px" mt="20px">
