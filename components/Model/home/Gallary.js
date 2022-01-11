@@ -25,7 +25,7 @@ import { SimpleGrid,Center} from '@chakra-ui/react'
 //     }
 //   }
 function Gallary() {
-    // console.log(gallarys)
+ console.log("test")
     return (
         <>
         <SimpleGrid mt="5" columns={[2, null, 4]} spacing="20px">
