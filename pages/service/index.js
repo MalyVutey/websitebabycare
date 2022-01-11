@@ -64,10 +64,10 @@ const Service = ({aboutServices,supportAvailables}) => {
         {supportAvailables?.map((item,ind)=>{
           return(
             <Box key={ind} boxShadow="md" bg="#FFFF" height="500px" rounded="md" >
-            <Box><Image h={200} src={item.fields.image.fields.file.url} alt="Segun Adebayo"/></Box>
+            <Box><Image h={300} w={"100%"} src={item.fields.image.fields.file.url} alt="Segun Adebayo"/></Box>
             <Box h="70px" borderBottomRadius="md" color="pink.500" p="5px">
               <Center ontSize="20" fontWeight="extrabold">{item.fields.title}</Center>
-              <Box textAlign="justify" noOfLines={10}>
+              <Box textAlign="justify" noOfLines={5}>
                {documentToReactComponents(item.fields.body)}
               </Box>
               <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">

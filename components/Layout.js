@@ -9,11 +9,10 @@ import img1  from "../image/1.jpg"
 
 const Layout = ({children}) => {
   const images = [
-    { url: img1 },
-    { url: "https://www.southcountyhealth.org/media/service-line-photos/home-health/baby-mother-sleep-home.jpg" },
+    { url: "https://firebasestorage.googleapis.com/v0/b/nicky-12f15.appspot.com/o/Artboard%201%401%2C25x.png?alt=media&token=e82a559b-e0d4-4ef2-ae37-31634d29996f" },
     { url: "https://calendarmedia.blob.core.windows.net/assets/bb1f4c99-1fc3-4f23-ac0e-de7422969941.jpg" },
     { url: "https://www.nykaa.com/beauty-blog/wp-content/uploads/images/issue186/baby-products_100.jpg" },
-    { url: "https://charissfamily.com/wp-content/uploads/2020/02/How-to-Choose-a-Paediatrician-for-Your-New-Baby-2048x1024.jpeg" },
+    { url: "https://www.wfmedia.com.au/wp-content/uploads/2018/08/AdobeStock_83836256-550x325.jpg" },
     { url: "https://sahyadrihospital.com/wp-content/uploads/2021/04/Newborns-Babies-Diseases.jpg" },
     { url: "https://www.wfmedia.com.au/wp-content/uploads/2018/08/AdobeStock_83836256-550x325.jpg" },
   ];

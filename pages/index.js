@@ -117,7 +117,7 @@ const width_Box = {
           return(
             <Box  key={ind} boxShadow="md" bg="#FFFF" w={width_Box}  rounded="md" >
             <Box>
-              <Image  h={200} src={item.fields.image.fields.file.url} alt="Segun Adebayo"/>
+              <Image  h={300} w={"100%"} src={item.fields.image.fields.file.url} alt="Segun Adebayo"/>
             </Box>
             <Box  borderBottomRadius="md" color="pink.500" p="5px">
               <Center fontWeight="extrabold">{item.fields.title} </Center>
@@ -140,8 +140,8 @@ const width_Box = {
       <SimpleGrid mt="5" columns={[2, null, 4]} spacing="20px">
           {Gallary?.map((item,index)=>{
             return(
-            <Center key={index}  bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
-               <Image h={200} src={item.fields.image.fields.file.url} alt="Segun Adebayo"/>
+            <Center key={index}  bg="white.500"  as="button" boxShadow="md"  h="300" color="white">
+               <Image h={300} w={"100%"} src={item.fields.image.fields.file.url} alt="Segun Adebayo"/>
             </Center>
             )
           })}

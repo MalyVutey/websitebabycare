@@ -26,7 +26,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   border-bottom: 3px solid #ec338c;
-  background-image: linear-gradient(to bottom right, pink, #FFFF);
+  background-image: linear-gradient(to bottom right, #ec338c, #FFFF);
   width: 100%;
   
 }
