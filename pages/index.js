@@ -105,11 +105,11 @@ export default function Home({supportICanOffers}) {
       </SimpleGrid>
       <SimpleGrid minChildWidth="120px" spacing="40px" mt="20px">
         {/* cart one */}
-        {supportICanOffers?.map((item)=>{
+        {supportICanOffers?.map((item,ind)=>{
           return(
-            <Box boxShadow="md" bg="#FFFF" height="500px" rounded="md" >
-            <Box><Image h={200} src={item.fields.image.fields.file.url} alt="Segun Adebayo"/></Box>
-            <Box h="70px" borderBottomRadius="md" color="pink.500" p="5px">
+            <Box key={ind} boxShadow="md" bg="#FFFF" height="500px" rounded="md" >
+              <Box><Image h={200} src={item.fields.image.fields.file.url} alt="Segun Adebayo"/></Box>
+              <Box h="70px" borderBottomRadius="md" color="pink.500" p="5px">
               <Center fontWeight="extrabold">{item.fields.title} </Center>
               <Box textAlign="justify">
                 {item.fields.body.substring(0, 200)}...
