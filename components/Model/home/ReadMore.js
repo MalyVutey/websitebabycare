@@ -10,6 +10,7 @@ import {
  Button,
  useDisclosure } from "@chakra-ui/react";
  import { Grid, GridItem,Image, Text,Center,Container,SimpleGrid  } from "@chakra-ui/react"
+ import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 function ReadMore({data}) {
  const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -34,7 +35,7 @@ function ReadMore({data}) {
     </Center>
     <ModalBody pb={6} textAlign="justify">
      <Text fontWeight='bold' mb='1rem'> You can scroll the content behind the modal</Text>
-       {data.body}
+       {documentToReactComponents(data.body)}
     </ModalBody>
     <ModalFooter>
       <Button onClick={onClose} variant='ghost'>Back Action</Button>

@@ -10,6 +10,7 @@ import {
  Button,
  useDisclosure } from "@chakra-ui/react";
  import { Grid, GridItem,Image, Text,Center,Container,SimpleGrid  } from "@chakra-ui/react"
+ import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 function CartDetail({data}) {
  const { isOpen, onOpen, onClose } = useDisclosure()
  return (
@@ -26,13 +27,13 @@ function CartDetail({data}) {
     <Center>
      <Image 
         boxSize="300px"
-        src={data.imageUrl}
+        src={data.image.fields.file.url}
         alt="cart more"
        />
     </Center>
     <ModalBody pb={6} textAlign="justify">
-     <Text fontWeight='bold' mb='1rem'>Thanks</Text>
-       {data.detail}
+     <Text fontWeight='bold' mb='1rem'>{data.title}</Text>
+       {documentToReactComponents(data.body)}
     </ModalBody>
     <ModalFooter>
       <Button onClick={onClose} variant='ghost'>Back Action</Button>

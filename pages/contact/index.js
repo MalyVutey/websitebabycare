@@ -7,7 +7,7 @@ const Contact = () => {
  return ( 
   <>
   <Head>
-    <title>Vutey rin || Contac</title>
+    <title>Contac</title>
      <meta name="keywords" content="ninjas" />
    </Head>
     <SimpleGrid columns={2}  boxShadow="md" >

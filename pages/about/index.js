@@ -5,6 +5,7 @@ import { Wrap, WrapItem } from "@chakra-ui/react"
 import { Grid, GridItem,Box, Text,Center } from "@chakra-ui/react"
 import { Flex, Spacer,Square,Image } from "@chakra-ui/react"
 import { createClient } from 'contentful'
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 export async function getStaticProps() {
   const client = createClient({
     space: "tv804lyjxtpt",
@@ -23,7 +24,7 @@ const About = ({aboutdata}) => {
  return ( 
   <>
   <Head>
-    <title>Vutey rin || About</title>
+    <title>About</title>
      <meta name="keywords" content="ninjas" />
    </Head>
     <Flex color="white">
@@ -40,7 +41,7 @@ const About = ({aboutdata}) => {
            <Text fontSize="2xl" color="black" fontWeight="extrabold"> {aboutdata[1].fields.title}</Text> 
         </Center>
         <Center color="black" textAlign="justify">
-         {aboutdata[1].fields.body}
+         {documentToReactComponents(aboutdata[1].fields.body)}
         </Center>
       </Box>
     </Flex>
@@ -49,7 +50,7 @@ const About = ({aboutdata}) => {
         <Text fontSize="2xl" color="black" fontWeight="extrabold"> {aboutdata[0].fields.title}</Text> 
       </Center>
       <Box textAlign="justify">
-      {aboutdata[1].fields.body}
+      {documentToReactComponents(aboutdata[1].fields.body)}
       </Box>
     </GridItem>
   </>

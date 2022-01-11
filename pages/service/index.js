@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
-import { Grid, GridItem,Box, Text,Center,Container,SimpleGrid  } from "@chakra-ui/react"
+import { Grid,Image, GridItem,Box, Text,Center,Container,SimpleGrid  } from "@chakra-ui/react"
 import nurs from '../../image/nurs.jpeg'
 import nurs1 from '../../image/nurs.jpeg'
 import img1 from '../../image/img1.jpg'
@@ -12,9 +12,31 @@ import img6 from '../../image/img6.jpg'
 import img7 from '../../image/img7.jpg'
 import img8 from '../../image/img8.jpg'
 import img9 from '../../image/img8.jpg'
-import Image from 'next/image'
+
+import { createClient } from 'contentful'
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import CartDetail from '../../components/Model/service/CartDetail'
-const Service = () => {
+export async function getStaticProps() {
+  const client = createClient({
+    space: "tv804lyjxtpt",
+    accessToken:"uJSHOdqNGgrmX6l6TxTUhSbbStRnK4qzB-GR8zUpwr0",
+  })
+  const res = await client.getEntries({content_type: "aboutService" })
+  const supportAvailable = await client.getEntries({content_type: "supportAvailable" })
+  
+  return {
+    props: {
+      aboutServices: res.items,
+      supportAvailables: supportAvailable.items
+    },
+    revalidate: 1
+  }
+}
+const Service = ({aboutServices,supportAvailables}) => {
+
+
+
+
   const data1 = {
     price: 400,
     imageUrl: "https://vnshealthcare.in/img/service/Mother-and-Baby-Care.png",
@@ -33,10 +55,11 @@ const Service = () => {
     detail: " Data3 are many benefits to a joint design and development system. Not onlydoes it bring benefits to the design team, but it also brings benefits to engineering teams. It makes sure that our experiences have a consistent lookand feel, not just in our design specs, but in production",
   
   }
+
  return ( 
   <>
   <Head>
-    <title>Vutey rin || Service</title>
+    <title>Service</title>
      <meta name="keywords" content="ninjas" />
    </Head>
    <Center  bg="pink.500" h="50px" color="white" mb="10px" mt="10px">
@@ -46,25 +69,10 @@ const Service = () => {
         {/* my work  */}
         <GridItem colSpan={3} boxShadow="md" p="6" rounded="md" bg="white">
           <Center color="white">
-           <Text fontSize="2xl" color="black" fontWeight="extrabold">About Service</Text> 
+           <Text fontSize="2xl" color="black" fontWeight="extrabold">{aboutServices[0].fields.title}</Text> 
           </Center>
           <Center  textAlign="justify">
-            There are many benefits to a joint design and development system. Not only
-            does it bring benefits to the design team, but it also brings benefits to
-            engineering teams. It makes sure that our experiences have a consistent look
-            and feel, not just in our design specs, but in production
-            There are many benefits to a joint design and development system. Not only
-            does it bring benefits to the design team, but it also brings benefits to
-            engineering teams. It makes sure that our experiences have a consistent look
-            and feel, not just in our design specs, but in production
-            There are many benefits to a joint design and development system. Not only
-            does it bring benefits to the design team, but it also brings benefits to
-            engineering teams. It makes sure that our experiences have a consistent look
-            and feel, not just in our design specs, but in production
-            There are many benefits to a joint design and development system. Not only
-            does it bring benefits to the design team, but it also brings benefits to
-            engineering teams. It makes sure that our experiences have a consistent look
-            and feel, not just in our design specs, but in production
+           {documentToReactComponents(aboutServices[0].fields.body)}
           </Center>
         </GridItem>
       </Grid> 
@@ -73,44 +81,23 @@ const Service = () => {
       </SimpleGrid>
       <SimpleGrid minChildWidth="120px" spacing="40px" mt="20px">
         {/* cart one */}
-        <Box boxShadow="md" bg="#FFFF" height="500px" rounded="md" >
-          <Box><Image h={200} src={img2} alt="Segun Adebayo"/></Box>
-          <Box h="70px" borderBottomRadius="md" color="pink.500" p="5px">
-            <Center>Help</Center>
-            <Box textAlign="justify">
-             {(data1.detail).substring(0, 200)}...
+        {supportAvailables?.map((item,ind)=>{
+          return(
+            <Box key={ind} boxShadow="md" bg="#FFFF" height="500px" rounded="md" >
+            <Box><Image h={200} src={item.fields.image.fields.file.url} alt="Segun Adebayo"/></Box>
+            <Box h="70px" borderBottomRadius="md" color="pink.500" p="5px">
+              <Center ontSize="20" fontWeight="extrabold">{item.fields.title}</Center>
+              <Box textAlign="justify" noOfLines={10}>
+               {documentToReactComponents(item.fields.body)}
+              </Box>
+              <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
+               <CartDetail data={item.fields}/>
+              </Center>
             </Box>
-            <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
-             <CartDetail data={data1}/>
-            </Center>
           </Box>
-        </Box>
-        {/* cart two */}
-        <Box boxShadow="md" bg="#FFFF" height="500px" rounded="md">
-          <Box><Image h={200} src={img3} alt="Segun Adebayo"/></Box>
-          <Box h="70px" borderBottomRadius="md" color="pink.500" p="5px">
-            <Center>Help</Center>
-            <Box textAlign="justify">
-             {(data2.detail).substring(0, 200)}...
-            </Box>
-            <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
-             <CartDetail data={data2}/>
-            </Center>
-          </Box>
-        </Box>
-        {/* cart three */}
-        <Box boxShadow="md" bg="#FFFF" height="500px" rounded="md">
-          <Box><Image h={200} src={img4} alt="Segun Adebayo"/></Box>
-          <Box h="70px" borderBottomRadius="md" color="pink.500" p="5px">
-            <Center>Help</Center>
-            <Box textAlign="justify">
-             {(data3.detail).substring(0, 200)}...
-            </Box>
-            <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
-             <CartDetail data={data3}/>
-            </Center>
-          </Box>
-        </Box>
+          )
+        })}
+
       </SimpleGrid>
 </>
   );

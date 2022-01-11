@@ -10,22 +10,22 @@ import img8 from '../../../image/img8.jpg'
 import img9 from '../../../image/img8.jpg'
 import Image from 'next/image'
 import { SimpleGrid,Center} from '@chakra-ui/react'
-// export async function getStaticProps() {
-//     const client = createClient({
-//       space: "tv804lyjxtpt",
-//       accessToken:"uJSHOdqNGgrmX6l6TxTUhSbbStRnK4qzB-GR8zUpwr0",
-//     })
-//     const res = await client.getEntries({content_type: "gallary" })
+export async function getStaticProps() {
+    const client = createClient({
+      space: "tv804lyjxtpt",
+      accessToken:"uJSHOdqNGgrmX6l6TxTUhSbbStRnK4qzB-GR8zUpwr0",
+    })
+    const res = await client.getEntries({content_type: "gallary" })
   
-//     return {
-//       props: {
-//         gallarys: res.items
-//       },
-//       revalidate: 1
-//     }
-//   }
-function Gallary() {
- console.log("test")
+    return {
+      props: {
+        gallarys: res.items
+      },
+      revalidate: 1
+    }
+  }
+function Gallary({gallarys}) {
+ console.log(gallarys)
     return (
         <>
         <SimpleGrid mt="5" columns={[2, null, 4]} spacing="20px">

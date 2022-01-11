@@ -24,81 +24,86 @@ import SupportOffer from '../components/Model/home/SupportOffer'
 import OutProject from '../components/Model/home/OutProject'
 import { createClient } from 'contentful'
 import { Image } from '@chakra-ui/react'
-
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import React from 'react'
-import Gallary from '../components/Model/home/Gallary'
 export async function getStaticProps() {
   const client = createClient({
     space: "tv804lyjxtpt",
     accessToken:"uJSHOdqNGgrmX6l6TxTUhSbbStRnK4qzB-GR8zUpwr0",
   })
   const res = await client.getEntries({content_type: "supportICanOffer" })
+  const resgallary = await client.getEntries({content_type: "gallary" })
+  const resmyImageAction = await client.getEntries({content_type: "myImageAction" })
 
   return {
     props: {
-      supportICanOffers: res.items
+      supportICanOffers: res.items,
+      Gallary :resgallary.items,
+      resmyImageActions: resmyImageAction.items
     },
     revalidate: 1
   }
 }
-export default function Home({supportICanOffers}) {
+export default function Home({supportICanOffers,Gallary,resmyImageActions}) {
   // #FF69B4
   const [isHovering, setIsHovered] = useState(false);
   const onMouseEnter = () => setIsHovered(true);
   const onMouseLeave = () => setIsHovered(false);
+
+  // console.log(resmyImageActions[0]?.fields.body.content)
+
+
 
 
  
   return (
     <>
       <Head>
-        <title>Vutey rin || Home</title>
+        <title>Home</title>
         <meta name="keywords" content="ninjas" />
       </Head>
       {/* How can i support you */}
-      <Center  bg="pink.500" h="50px" color="white" mb="10px" mt="10px">
+      {/* <Center  bg="pink.500" h="50px" color="white" mb="10px" mt="10px">
        <Text fontSize="2xl" fontWeight="extrabold">How Can I Support You</Text> 
-      </Center>
-      <Grid h="500px" templateRows="repeat(2, 1fr)" templateColumns="repeat(5, 1fr)" gap={4}mb={10}>
-        {/* About */}
+      </Center> */}
+      {/* <Grid h="500px" templateRows="repeat(2, 1fr)" templateColumns="repeat(5, 1fr)" gap={4}mb={10}>
         <GridItem rowSpan={2} colSpan={2} boxShadow="md" p="6" rounded="md" bg="white">
-          {/* <Image  src={nickywebsites[0].fields.image.fields.file.url} alt="Segun Adebayo"/> */}
+          <Image  src={nickywebsites[0].fields.image.fields.file.url} alt="Segun Adebayo"/>
           <Center h="50px" color="white">
             <Text fontSize="2xl" color="black" fontWeight="extrabold">
-              {/* {nickywebsites[0].fields.title} */}
+              {nickywebsites[0].fields.title}
               </Text> 
           </Center>
           <Container  textAlign="justify">
-           {/* {nickywebsites[0].fields.body} */}
+           {nickywebsites[0].fields.body}
           </Container>
         </GridItem>
-        {/* my work  */}
         <GridItem colSpan={3} boxShadow="md" p="6" rounded="md" bg="white">
-          {/* <Image src={nickywebsites[1].fields.image.fields.file.url} alt='Dan Abramov' /> */}
+          <Image src={nickywebsites[1].fields.image.fields.file.url} alt='Dan Abramov' />
         </GridItem>
         <GridItem colSpan={3} boxShadow="md" p="6" rounded="md" bg="white">
           <Center h="50px" color="white">
            <Text fontSize="2xl" color="black" fontWeight="extrabold">
-             {/* {nickywebsites[1].fields.title} */}
+             {nickywebsites[1].fields.title}
              </Text> 
           </Center>
           <Container  textAlign="justify">
-            {/* {nickywebsites[1].fields.body} */}
+            {nickywebsites[1].fields.body}
           </Container>
         </GridItem>
-      </Grid> 
+      </Grid>  */}
       {/* small bottom  */}
-      <SimpleGrid mt="14" columns={[1, null, 2]} spacing="20px">
-          {/* <Center  borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="10" color="white">
+      {/* <SimpleGrid mt="14" columns={[1, null, 2]} spacing="20px">
+          <Center  borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="10" color="white">
             <SupportOffer />
-          </Center> */}
+          </Center>
           <Center  bg="pink.500"  as="button" boxShadow="md"  h="10" color="white">
             <OutProject/>
           </Center>
-          {/* <Center borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="10" color="white">
+          <Center borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="10" color="white">
             <FormEmail title="Contact" />
-          </Center> */}
-      </SimpleGrid>
+          </Center>
+      </SimpleGrid> */}
       {/* packages available  */}
       <SimpleGrid minChildWidth="120px" spacing="40px" mt="20px">
           <Center fontSize="20" fontWeight="extrabold" borderBottomWidth="3px" borderBottomColor="pink.500">SUPPORT I CAN OFFER</Center>
@@ -108,11 +113,11 @@ export default function Home({supportICanOffers}) {
         {supportICanOffers?.map((item,ind)=>{
           return(
             <Box key={ind} boxShadow="md" bg="#FFFF" height="500px" rounded="md" >
-              <Box><Image h={200} src={item.fields.image.fields.file.url} alt="Segun Adebayo"/></Box>
-              <Box h="70px" borderBottomRadius="md" color="pink.500" p="5px">
+            <Box><Image h={200} src={item.fields.image.fields.file.url} alt="Segun Adebayo"/></Box>
+            <Box h="70px" borderBottomRadius="md" color="pink.500" p="5px">
               <Center fontWeight="extrabold">{item.fields.title} </Center>
-              <Box textAlign="justify">
-                {item.fields.body.substring(0, 200)}...
+              <Box textAlign="justify" noOfLines={10}>
+                {documentToReactComponents(item.fields.body)}
               </Box>
               <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
                 <ReadMore data={item.fields}/>
@@ -127,20 +132,21 @@ export default function Home({supportICanOffers}) {
       <SimpleGrid minChildWidth="120px" spacing="40px" mt="20px">
           <Center p="3" fontSize="20" fontWeight="extrabold" borderBottomWidth="3px" borderBottomColor="pink.500">Gallery</Center>
       </SimpleGrid>
-        <Gallary/>
+      <SimpleGrid mt="5" columns={[2, null, 4]} spacing="20px">
+          {Gallary?.map((item,index)=>{
+            return(
+            <Center key={index}  bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
+               <Image h={200} src={item.fields.image.fields.file.url} alt="Segun Adebayo"/>
+            </Center>
+            )
+          })}
+      </SimpleGrid>
       <GridItem colSpan={3} boxShadow="md" p="6" rounded="md" bg="white">
           <Center h="50px" color="white">
-           <Text fontSize="2xl" color="black" fontWeight="extrabold">My Image Action</Text> 
+           <Text fontSize="2xl" color="black" fontWeight="extrabold">{resmyImageActions[0]?.fields?.title}</Text> 
           </Center>
-          <Box  textAlign="justify">
-            There are many benefits to a joint design and development system. Not only
-            does it bring benefits to the design team, but it also brings benefits to
-            engineering teams. It makes sure that our experiences have a consistent look
-            and feel, not just in our design specs, but in production
-            There are many benefits to a joint design and development system. Not only
-            does it bring benefits to the design team, but it also brings benefits to
-            engineering teams. It makes sure that our experiences have a consistent look
-            and feel, not just in our design specs, but in production
+          <Box textAlign="justify" >
+          {documentToReactComponents(resmyImageActions[0].fields.body)}
           </Box>
         </GridItem>
     </>
