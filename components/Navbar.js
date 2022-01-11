@@ -5,7 +5,7 @@ import { Stack, HStack, VStack,Radio,RadioGroup,Button } from "@chakra-ui/react"
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react"
 import Image from 'next/image'
 import logo from "../image/logo.jpg"
-import { Grid, GridItem,Box, Text,Center,Container  } from "@chakra-ui/react"
+import { Grid, GridItem,Box, Text,Center,Container,Input  } from "@chakra-ui/react"
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -21,8 +21,8 @@ const Navbar = () => {
           <Link href="/about"><a>About</a></Link>
           <Link href="/service"><a>Service</a></Link>
           <Link href="/contact"><a>Contact</a></Link>
-          
         </div>
+        <Input p={6} placeholder='search' borderRadius={5} pl="10" w="20%"/>
       </div>
       
   </nav>

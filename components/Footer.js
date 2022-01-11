@@ -1,10 +1,10 @@
-import { Center } from "@chakra-ui/layout";
-
+import { Center,Box } from "@chakra-ui/layout";
+import styles from '../styles/Home.module.css'
 const Footer = () => {
  return ( 
-  <footer>
-     <Center>Copyright 2021 Power by @rinvutey</Center> 
-  </footer>
+  <Box className={styles.footer}>
+     <Center >Copyright 2021 Power by @rinvutey</Center> 
+  </Box>
   );
 }
  

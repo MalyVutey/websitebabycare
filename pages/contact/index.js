@@ -5,7 +5,7 @@ import FormEmail from '../../components/Model/contact/FormEmail';
 
 const Contact = () => {
  return ( 
-  <>
+  <Box bg={"#FFFF"}>
   <Head>
     <title>Contac</title>
      <meta name="keywords" content="ninjas" />
@@ -34,7 +34,7 @@ const Contact = () => {
           </Box>
         </Box>
     </SimpleGrid>
-</>
+</Box>
   );
 }
  

@@ -2,10 +2,11 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import styles from '../styles/Home.module.css'
 import SimpleImageSlider from "react-simple-image-slider";
-import { Center,Container } from "@chakra-ui/react";
+import { Box, Center,Container } from "@chakra-ui/react";
 import Image from 'next/image'
 import logo from "../image/logo.jpg"
 import img1  from "../image/1.jpg"
+
 const Layout = ({children}) => {
   const images = [
     { url: img1 },
@@ -17,31 +18,26 @@ const Layout = ({children}) => {
     { url: "https://www.wfmedia.com.au/wp-content/uploads/2018/08/AdobeStock_83836256-550x325.jpg" },
   ];
  return ( 
-   <>
+   <Box bg={"#FFFF"}>
    <Navbar/>
    <div className="content">
-   
      <Container className={styles.container}>
-      
-      {/* <Center bg="red">
-        <Image width="100%" height="100%" src={logo} alt="log"/>
-      </Center> */}
-      <Center>
+      <Box>
           <SimpleImageSlider
-            width={896}
-            height={400}
+            width={"76.6%"}
+            height={500}
             images={images}
             showBullets={true}
             showNavs={true}
             autoPlay={true}
             loop={true}
           />
-        </Center>
+        </Box>
         {children}
         <Footer/>
       </Container>
    </div>
-  </>
+  </Box>
    
   );
 }

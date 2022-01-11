@@ -36,33 +36,13 @@ const Service = ({aboutServices,supportAvailables}) => {
 
 
 
-
-  const data1 = {
-    price: 400,
-    imageUrl: "https://vnshealthcare.in/img/service/Mother-and-Baby-Care.png",
-    detail: " Data1 are many benefits to a joint design and development system. Not onlydoes it bring benefits to the design team, but it also brings benefits to engineering teams. It makes sure that our experiences have a consistent lookand feel, not just in our design specs, but in production",
-  
-  }
-  const data2 = {
-    price: 300,
-    imageUrl: "https://cdn.shopify.com/s/files/1/0443/9159/6186/files/onesie.jpg?v=1613731541",
-    detail: " Data2 are many benefits to a joint design and development system. Not onlydoesto a joint design and development system. Not onlydoes it bring benefits to the design team, but it also brings benefits to engineering teams. It makes sure that our experiences have a consistent lookand feel, not just in our design specs, but in productionto a joint design and development system. Not onlydoes it bring benefits to the design team, but it also brings benefits to engineering teams. It makes sure that our experiences have a consistent lookand feel, not just in our design specs, but in productionto a joint design and development system. Not onlydoes it bring benefits to the design team, but it also brings benefits to engineering teams. It makes sure that our experiences have a consistent lookand feel, not just in our design specs, but in production it bring benefits to the design team, but it also brings benefits to engineering teams. It makes sure that our experiences have a consistent lookand feel, not just in our design specs, but in production",
-  
-  }
-  const data3 = {
-    price: 200,
-    imageUrl: "https://4.imimg.com/data4/CO/FY/MY-20272032/baby-care-services-500x500.jpg",
-    detail: " Data3 are many benefits to a joint design and development system. Not onlydoes it bring benefits to the design team, but it also brings benefits to engineering teams. It makes sure that our experiences have a consistent lookand feel, not just in our design specs, but in production",
-  
-  }
-
  return ( 
-  <>
+  <Box bg={"#FFFF"}>
   <Head>
     <title>Service</title>
      <meta name="keywords" content="ninjas" />
    </Head>
-   <Center  bg="pink.500" h="50px" color="white" mb="10px" mt="10px">
+   <Center  bg="pink.500" h="50px" color="white" mb="10px">
        <Text fontSize="2xl" fontWeight="extrabold">Midwifery Services Cambodia</Text> 
       </Center>
       <Grid h="400px">
@@ -79,7 +59,7 @@ const Service = ({aboutServices,supportAvailables}) => {
       <SimpleGrid minChildWidth="120px" spacing="40px" mt="20px">
           <Center fontSize="20" fontWeight="extrabold" borderBottomWidth="3px" borderBottomColor="pink.500">SUPPORT AVAILABLE</Center>
       </SimpleGrid>
-      <SimpleGrid minChildWidth="120px" spacing="40px" mt="20px">
+      <SimpleGrid minChildWidth="120px" spacing="40px" mt="20px" p={3}>
         {/* cart one */}
         {supportAvailables?.map((item,ind)=>{
           return(
@@ -99,7 +79,7 @@ const Service = ({aboutServices,supportAvailables}) => {
         })}
 
       </SimpleGrid>
-</>
+</Box>
   );
 }
  

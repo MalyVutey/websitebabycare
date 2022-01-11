@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
-
+*{
+  /* background-color: pink;  */
+}
 body {
   /* background: #f2f2f2; */
-  background-color: pink; 
+  /* background-color: pink;  */
   color: #333333;
   font-family: "Nunito";
   padding: 0px;
@@ -14,34 +16,35 @@ a {
   text-decoration: none;
 }
 .content {
-  max-width: 960px;
-  margin: 0 auto;
-  /* background: pink; */
+  /* background-image: linear-gradient(360deg, #FFFF, #ec338c); */
+  background-image: linear-gradient(to bottom right, #ec338c, #FFFF);
 }
 nav {
-  /* margin: 10px auto 10px; */
-  /* padding: 0px 20px; */
-  /* display: flex; */
-  /* justify-content: space-between;
-  align-items: center; */
-  border-bottom: 3px solid #ED64A6;
-  /* background: pink; */
+  /* margin: 10px auto 10px;  */
+  padding: 0px 20px; 
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #ec338c;
+  background-image: linear-gradient(to bottom right, pink, #FFFF);
+  width: 100%;
   
 }
 .containNavbar {
   display: flex;
-  /* justify-content: space-between; */
-  /* background: red; */
-  max-width: 960px;
+  justify-content: space-between;
+  /* background: red;s */
+  width: 80%;
   align-items: center;
   margin: 0 auto;
-  padding: 0px 30px;
+  padding: 0px 10px;
   
 }
 .navbar {
   /* background: pink; */
   margin-left: auto;
   /* width: 50%; */
+  margin-right: 5%;
 
 }
 nav a {
@@ -70,6 +73,7 @@ footer {
   color: #777;
   border-top: 1px solid #eaeaea;
   width: "100%";
+  background-color: "#FFFF";
 }
 .not-found {
   text-align: center;

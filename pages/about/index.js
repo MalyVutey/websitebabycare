@@ -22,7 +22,7 @@ export async function getStaticProps() {
 }
 const About = ({aboutdata}) => {
  return ( 
-  <>
+  <Box bg={"#FFFF"}>
   <Head>
     <title>About</title>
      <meta name="keywords" content="ninjas" />
@@ -40,7 +40,7 @@ const About = ({aboutdata}) => {
         <Center h="50px" color="white">
            <Text fontSize="2xl" color="black" fontWeight="extrabold"> {aboutdata[1].fields.title}</Text> 
         </Center>
-        <Center color="black" textAlign="justify">
+        <Center color="black" textAlign="justify" p={4}>
          {documentToReactComponents(aboutdata[1].fields.body)}
         </Center>
       </Box>
@@ -53,7 +53,7 @@ const About = ({aboutdata}) => {
       {documentToReactComponents(aboutdata[1].fields.body)}
       </Box>
     </GridItem>
-  </>
+  </Box>
   );
 }
  

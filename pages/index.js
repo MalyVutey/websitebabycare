@@ -25,6 +25,7 @@ import OutProject from '../components/Model/home/OutProject'
 import { createClient } from 'contentful'
 import { Image } from '@chakra-ui/react'
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+
 import React from 'react'
 export async function getStaticProps() {
   const client = createClient({
@@ -46,18 +47,20 @@ export async function getStaticProps() {
 }
 export default function Home({supportICanOffers,Gallary,resmyImageActions}) {
   // #FF69B4
-  const [isHovering, setIsHovered] = useState(false);
-  const onMouseEnter = () => setIsHovered(true);
-  const onMouseLeave = () => setIsHovered(false);
-
-  // console.log(resmyImageActions[0]?.fields.body.content)
+const width_Box = {
+  sm: "350px",
+  md: "150px",
+  lg: "200px",
+  xl: "300px",
+  "2xl": "400px",
+}
 
 
 
 
  
   return (
-    <>
+    <Box bg={"#FFFF"}>
       <Head>
         <title>Home</title>
         <meta name="keywords" content="ninjas" />
@@ -105,18 +108,20 @@ export default function Home({supportICanOffers,Gallary,resmyImageActions}) {
           </Center>
       </SimpleGrid> */}
       {/* packages available  */}
-      <SimpleGrid minChildWidth="120px" spacing="40px" mt="20px">
-          <Center fontSize="20" fontWeight="extrabold" borderBottomWidth="3px" borderBottomColor="pink.500">SUPPORT I CAN OFFER</Center>
+      <SimpleGrid minChildWidth="120px" spacing="40px" >
+          <Center p="5" fontSize="20" fontWeight="extrabold" borderBottomWidth="3px" borderBottomColor="pink.500">SUPPORT I CAN OFFER</Center>
       </SimpleGrid>
-      <SimpleGrid minChildWidth="120px" spacing="40px" mt="20px">
+      <SimpleGrid minChildWidth="120px" spacing="40px" mt="20px" height="500px" >
         {/* cart one */}
         {supportICanOffers?.map((item,ind)=>{
           return(
-            <Box key={ind} boxShadow="md" bg="#FFFF" height="500px" rounded="md" >
-            <Box><Image h={200} src={item.fields.image.fields.file.url} alt="Segun Adebayo"/></Box>
-            <Box h="70px" borderBottomRadius="md" color="pink.500" p="5px">
+            <Box  key={ind} boxShadow="md" bg="#FFFF" w={width_Box}  rounded="md" >
+            <Box>
+              <Image  h={200} src={item.fields.image.fields.file.url} alt="Segun Adebayo"/>
+            </Box>
+            <Box  borderBottomRadius="md" color="pink.500" p="5px">
               <Center fontWeight="extrabold">{item.fields.title} </Center>
-              <Box textAlign="justify" noOfLines={10}>
+              <Box textAlign="justify" noOfLines={6}>
                 {documentToReactComponents(item.fields.body)}
               </Box>
               <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
@@ -149,6 +154,6 @@ export default function Home({supportICanOffers,Gallary,resmyImageActions}) {
           {documentToReactComponents(resmyImageActions[0].fields.body)}
           </Box>
         </GridItem>
-    </>
+    </Box>
   )
 }
