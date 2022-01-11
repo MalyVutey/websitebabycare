@@ -26,6 +26,7 @@ import { createClient } from 'contentful'
 import { Image } from '@chakra-ui/react'
 
 import React from 'react'
+import Gallary from '../components/Model/home/Gallary'
 export async function getStaticProps() {
   const client = createClient({
     space: "tv804lyjxtpt",
@@ -47,23 +48,6 @@ export default function Home({supportICanOffers}) {
   const onMouseLeave = () => setIsHovered(false);
 
 
-
-
-  const data1 = {
-    imageUrl: "https://bit.ly/2Z4KKcF",
-    detail: " Data1 are many benefits to a joint design and development system. Not onlydoes it bring benefits to the design team, but it also brings benefits to engineering teams. It makes sure that our experiences have a consistent lookand feel, not just in our design specs, but in production",
-  
-  }
-  const data2 = {
-    imageUrl: "https://bit.ly/2Z4KKcF",
-    detail: " Data2 are many benefits to a joint design and development system. Not onlydoesto a joint design and development system. Not onlydoes it bring benefits to the design team, but it also brings benefits to engineering teams. It makes sure that our experiences have a consistent lookand feel, not just in our design specs, but in productionto a joint design and development system. Not onlydoes it bring benefits to the design team, but it also brings benefits to engineering teams. It makes sure that our experiences have a consistent lookand feel, not just in our design specs, but in productionto a joint design and development system. Not onlydoes it bring benefits to the design team, but it also brings benefits to engineering teams. It makes sure that our experiences have a consistent lookand feel, not just in our design specs, but in production it bring benefits to the design team, but it also brings benefits to engineering teams. It makes sure that our experiences have a consistent lookand feel, not just in our design specs, but in production",
-  
-  }
-  const data3 = {
-    imageUrl: "https://bit.ly/2Z4KKcF",
-    detail: " Data3 are many benefits to a joint design and development system. Not onlydoes it bring benefits to the design team, but it also brings benefits to engineering teams. It makes sure that our experiences have a consistent lookand feel, not just in our design specs, but in production",
-  
-  }
  
   return (
     <>
@@ -131,7 +115,7 @@ export default function Home({supportICanOffers}) {
                 {item.fields.body.substring(0, 200)}...
               </Box>
               <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
-                <ReadMore data={data1}/>
+                <ReadMore data={item.fields}/>
               </Center>
             </Box>
           </Box>
@@ -143,51 +127,7 @@ export default function Home({supportICanOffers}) {
       <SimpleGrid minChildWidth="120px" spacing="40px" mt="20px">
           <Center p="3" fontSize="20" fontWeight="extrabold" borderBottomWidth="3px" borderBottomColor="pink.500">Gallery</Center>
       </SimpleGrid>
-      <SimpleGrid mt="5" columns={[2, null, 4]} spacing="20px">
-          <Center onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} h="200">
-          {isHovering ? (
-          <Image h={350} width={200} src={img1} alt="Segun Adebayo"/>
-          ) : (
-          <Image h={200}   src={img1} alt="Segun Adebayo"/>
-          )}
-          </Center>
-          <Center  bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
-            <Image h={200} src={img2} alt="Segun Adebayo"/>
-          </Center>
-          <Center   bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
-            <Image h={200} src={img3} alt="Segun Adebayo"/>
-          </Center>
-          <Center   bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
-            <Image h={200} src={img4} alt="Segun Adebayo"/>
-          </Center>
-          <Center   bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
-            <Image h={200} src={img5} alt="Segun Adebayo"/>
-          </Center>
-          <Center   bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
-            <Image h={200} src={img6} alt="Segun Adebayo"/>
-          </Center>
-          <Center   bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
-            <Image h={200} src={img7} alt="Segun Adebayo"/>
-          </Center>
-          <Center  bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
-           <Image h={200} src={img8} alt="Segun Adebayo"/>
-          </Center>
-          <Center   bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
-            <Image h={200} src={img9} alt="Segun Adebayo"/>
-          </Center>
-          <Center   bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
-            <Image h={200} src={img1} alt="Segun Adebayo"/>
-          </Center>
-          <Center   bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
-            <Image h={200} src={img2} alt="Segun Adebayo"/>
-          </Center>
-          <Center   bg="white.500"  as="button" boxShadow="md"  h="200" color="white">
-            <Image h={200} src={img3} alt="Segun Adebayo"/>
-          </Center>
-      </SimpleGrid>
-      {/* <SimpleGrid minChildWidth="120px" spacing="40px" mt="20px">
-          <Center p="3" fontSize="20" fontWeight="extrabold" borderBottomWidth="3px" borderBottomColor="pink.500">Gallery</Center>
-      </SimpleGrid> */}
+        <Gallary/>
       <GridItem colSpan={3} boxShadow="md" p="6" rounded="md" bg="white">
           <Center h="50px" color="white">
            <Text fontSize="2xl" color="black" fontWeight="extrabold">My Image Action</Text> 

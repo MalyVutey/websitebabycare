@@ -3,9 +3,6 @@ import styles from '../../styles/Home.module.css'
 import { Wrap, WrapItem } from "@chakra-ui/react"
 // import Image from 'next/image'
 import { Grid, GridItem,Box, Text,Center } from "@chakra-ui/react"
-import nurs from '../../image/nurs.jpeg'
-import nurs1 from '../../image/nurs.jpeg'
-import img2 from '../../image/img2.jpg'
 import { Flex, Spacer,Square,Image } from "@chakra-ui/react"
 import { createClient } from 'contentful'
 export async function getStaticProps() {
@@ -23,7 +20,6 @@ export async function getStaticProps() {
   }
 }
 const About = ({aboutdata}) => {
-  console.log(aboutdata[1].fields)
  return ( 
   <>
   <Head>
@@ -32,12 +28,12 @@ const About = ({aboutdata}) => {
    </Head>
     <Flex color="white">
       <Square size="350px">
-      {/* <Image
+      <Image
           borderRadius="full"
           boxSize="300px"
           src={aboutdata[0].fields.image.fields.file.url}
           alt="Segun Adebayo"
-        /> */}
+        />
       </Square>
       <Box mt="15">
         <Center h="50px" color="white">
