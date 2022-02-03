@@ -25,11 +25,11 @@ function CartDetail({data}) {
     <ModalHeader>What Can I Help You</ModalHeader>
     <ModalCloseButton />
     <Center>
-     <Image 
+     {/* <Image 
         boxSize="300px"
         src={data.image.fields.file.url}
         alt="cart more"
-       />
+       /> */}
     </Center>
     <ModalBody pb={6} textAlign="justify">
      <Text fontWeight='bold' mb='1rem'>{data.title}</Text>

@@ -21,6 +21,7 @@ export async function getStaticProps() {
   }
 }
 const About = ({aboutdata}) => {
+  console.log(documentToReactComponents(aboutdata[1].fields.body));
  return ( 
   <Box bg={"#FFFF"}>
   <Head>
@@ -32,9 +33,10 @@ const About = ({aboutdata}) => {
       <Image
           borderRadius="full"
           boxSize="300px"
-          src={aboutdata[0].fields.image.fields.file.url}
+          src={"https:"+aboutdata[0]?.fields?.image?.fields?.file?.url}
           alt="Segun Adebayo"
         />
+        {/* src={"https:"+item?.fields?.image?.fields?.file?.url}  */}
       </Square>
       <Box mt="15">
         <Center h="50px" color="white">

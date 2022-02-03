@@ -25,7 +25,9 @@ export async function getStaticProps() {
     }
   }
 function Gallary({gallarys}) {
- console.log(gallarys)
+
+  // console.log(gallarys[0].fields?.image?.fields?.file?.url,"funcutey");
+
     return (
         <>
         <SimpleGrid mt="5" columns={[2, null, 4]} spacing="20px">

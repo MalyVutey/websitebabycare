@@ -55,7 +55,7 @@ const width_Box = {
   "2xl": "400px",
 }
 
-
+// console.log(Gallary[0]?.fields?.image?.fields?.file?.url,"testin image")
 
 
  
@@ -117,15 +117,15 @@ const width_Box = {
           return(
             <Box  key={ind} boxShadow="md" bg="#FFFF" w={width_Box}  rounded="md" >
             <Box>
-              <Image  h={300} w={"100%"} src={item.fields.image.fields.file.url} alt="Segun Adebayo"/>
+              <Image  h={300} w={"100%"} src={"https:"+item?.fields?.image?.fields?.file?.url} alt="Segun Adebayo"/>
             </Box>
             <Box  borderBottomRadius="md" color="pink.500" p="5px">
-              <Center fontWeight="extrabold">{item.fields.title} </Center>
+              <Center fontWeight="extrabold">{item?.fields?.title} </Center>
               <Box textAlign="justify" noOfLines={6}>
                 {documentToReactComponents(item.fields.body)}
               </Box>
               <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
-                <ReadMore data={item.fields}/>
+                <ReadMore data={item?.fields}/>
               </Center>
             </Box>
           </Box>
@@ -141,7 +141,7 @@ const width_Box = {
           {Gallary?.map((item,index)=>{
             return(
             <Center key={index}  bg="white.500"  as="button" boxShadow="md"  h="300" color="white">
-               <Image h={300} w={"100%"} src={item.fields.image.fields.file.url} alt="Segun Adebayo"/>
+               <Image h={300} w={"100%"} src={"https:"+item?.fields?.image?.fields?.file?.url} alt="Segun Adebayo"/>
             </Center>
             )
           })}

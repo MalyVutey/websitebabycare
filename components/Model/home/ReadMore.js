@@ -27,11 +27,11 @@ function ReadMore({data}) {
     <ModalHeader>{data.titile}</ModalHeader>
     <ModalCloseButton />
     <Center>
-     <Image 
+     {/* <Image 
         boxSize="300px"
         src={data.image.fields.file.url}
         alt="cart more"
-       />
+       /> */}
     </Center>
     <ModalBody pb={6} textAlign="justify">
      <Text fontWeight='bold' mb='1rem'> You can scroll the content behind the modal</Text>
