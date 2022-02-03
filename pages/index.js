@@ -48,11 +48,11 @@ export async function getStaticProps() {
 export default function Home({supportICanOffers,Gallary,resmyImageActions}) {
   // #FF69B4
 const width_Box = {
-  sm: "350px",
+  sm: "250px",
   md: "150px",
   lg: "200px",
   xl: "300px",
-  "2xl": "400px",
+  "2xl": "460px",
 }
 
 // console.log(Gallary[0]?.fields?.image?.fields?.file?.url,"testin image")
@@ -111,24 +111,22 @@ const width_Box = {
       <SimpleGrid minChildWidth="120px" spacing="40px" >
           <Center p="5" fontSize="20" fontWeight="extrabold" borderBottomWidth="3px" borderBottomColor="pink.500">SUPPORT I CAN OFFER</Center>
       </SimpleGrid>
-      <SimpleGrid minChildWidth="120px" spacing="40px" mt="20px" height="500px" >
+      <SimpleGrid minChildWidth="120px" spacing="40px" mt="20px" >
         {/* cart one */}
         {supportICanOffers?.map((item,ind)=>{
           return(
-            <Box  key={ind} boxShadow="md" bg="#FFFF" w={width_Box}  rounded="md" >
-            <Box>
-              <Image  h={300} w={"100%"} src={"https:"+item?.fields?.image?.fields?.file?.url} alt="Segun Adebayo"/>
-            </Box>
-            <Box  borderBottomRadius="md" color="pink.500" p="5px">
-              <Center fontWeight="extrabold">{item?.fields?.title} </Center>
-              <Box textAlign="justify" noOfLines={6}>
-                {documentToReactComponents(item.fields.body)}
-              </Box>
-              <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
-                <ReadMore data={item?.fields}/>
+            <Center  key={ind}  bg="white.500"  as="button" boxShadow="md"  color="white" >
+             <Box borderBottomRadius="md" color="pink.500" p="5px">
+               <Image src={"https:"+item?.fields?.image?.fields?.file?.url} alt="Segun Adebayo"/>
+                <Center fontWeight="extrabold">{item?.fields?.title} </Center>
+                <Box textAlign="justify" noOfLines={10}>
+                  {documentToReactComponents(item.fields.body)}
+                </Box>
+                <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
+                  <ReadMore data={item?.fields}/>
               </Center>
             </Box>
-          </Box>
+          </Center>
           )
         })}
         {/* cart end */}
@@ -140,8 +138,10 @@ const width_Box = {
       <SimpleGrid mt="5" columns={[2, null, 4]} spacing="20px">
           {Gallary?.map((item,index)=>{
             return(
-            <Center key={index}  bg="white.500"  as="button" boxShadow="md"  h="300" color="white">
-               <Image h={300} w={"100%"} src={"https:"+item?.fields?.image?.fields?.file?.url} alt="Segun Adebayo"/>
+            <Center key={index}  bg="white.500"  as="button" boxShadow="md"  color="white">
+              <Box borderBottomRadius="md" color="pink.500" p="5px">
+               <Image src={"https:"+item?.fields?.image?.fields?.file?.url} alt="Segun Adebayo"/>
+              </Box>
             </Center>
             )
           })}

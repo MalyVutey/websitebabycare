@@ -42,10 +42,10 @@ const Service = ({aboutServices,supportAvailables}) => {
     <title>Service</title>
      <meta name="keywords" content="ninjas" />
    </Head>
-   <Center  bg="pink.500" h="50px" color="white" mb="10px">
+   <Center  bg="pink.500"  color="white" mb="10px">
        <Text fontSize="2xl" fontWeight="extrabold">Midwifery Services Cambodia</Text> 
       </Center>
-      <Grid h="400px">
+      <Grid>
         {/* my work  */}
         <GridItem colSpan={3} boxShadow="md" p="6" rounded="md" bg="white">
           <Center color="white">
@@ -63,18 +63,19 @@ const Service = ({aboutServices,supportAvailables}) => {
         {/* cart one */}
         {supportAvailables?.map((item,ind)=>{
           return(
-            <Box key={ind} boxShadow="md" bg="#FFFF" height="500px" rounded="md" >
-            <Box><Image h={300} w={"100%"} src={item.fields.image.fields.file.url} alt="Segun Adebayo"/></Box>
-            <Box h="70px" borderBottomRadius="md" color="pink.500" p="5px">
-              <Center ontSize="20" fontWeight="extrabold">{item.fields.title}</Center>
-              <Box textAlign="justify" noOfLines={5}>
+            <Center  key={ind}  bg="white.500"  as="button" boxShadow="md"  color="white" >
+            <Box borderBottomRadius="md" color="pink.500" p="5px">
+             <Image src={item.fields.image.fields.file.url} alt="Segun Adebayo"/>
+              <Center fontWeight="extrabold">{item.fields.title}</Center>
+              <Box textAlign="justify" noOfLines={10}>
                {documentToReactComponents(item.fields.body)}
               </Box>
               <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
                <CartDetail data={item.fields}/>
               </Center>
             </Box>
-          </Box>
+          </Center>
+     
           )
         })}
 
