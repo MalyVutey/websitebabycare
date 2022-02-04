@@ -21,7 +21,7 @@ export async function getStaticProps() {
   }
 }
 const About = ({aboutdata}) => {
-  console.log(documentToReactComponents(aboutdata[1].fields.body));
+  console.log(documentToReactComponents(aboutdata[0].fields.body));
  return ( 
   <Box bg={"#FFFF"}>
   <Head>
