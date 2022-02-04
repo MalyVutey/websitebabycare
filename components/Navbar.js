@@ -22,7 +22,7 @@ const Navbar = () => {
           <Link href="/service"><a>Service</a></Link>
           <Link href="/contact"><a>Contact</a></Link>
         </div>
-        <Input p={6} placeholder='search' borderRadius={5} pl="10" w="20%"/>
+        {/* <Input p={6} placeholder='search' borderRadius={5} pl="10" w="20%"/> */}
       </div>
       
   </nav>

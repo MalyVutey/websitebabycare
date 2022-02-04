@@ -2,18 +2,6 @@ import react ,{useState} from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 // import Image from 'next/image'
-import img from '../image/img1.jpg'
-import nurs from '../image/nurs.jpeg'
-import nurs1 from '../image/img1.jpg'
-import img1 from '../image/img1.jpg'
-import img2 from '../image/img2.jpg'
-import img3 from '../image/img3.jpg'
-import img4 from '../image/img6.jpg'
-import img5 from '../image/img7.jpg'
-import img6 from '../image/img6.jpg'
-import img7 from '../image/img7.jpg'
-import img8 from '../image/img8.jpg'
-import img9 from '../image/img8.jpg'
 import { position, Wrap, WrapItem } from "@chakra-ui/react"
 import { Flex, Spacer,Square } from "@chakra-ui/react"
 import { Grid, GridItem,Box,Link, Text,Center,Container,SimpleGrid  } from "@chakra-ui/react"
@@ -65,49 +53,6 @@ const width_Box = {
         <title>Home</title>
         <meta name="keywords" content="ninjas" />
       </Head>
-      {/* How can i support you */}
-      {/* <Center  bg="pink.500" h="50px" color="white" mb="10px" mt="10px">
-       <Text fontSize="2xl" fontWeight="extrabold">How Can I Support You</Text> 
-      </Center> */}
-      {/* <Grid h="500px" templateRows="repeat(2, 1fr)" templateColumns="repeat(5, 1fr)" gap={4}mb={10}>
-        <GridItem rowSpan={2} colSpan={2} boxShadow="md" p="6" rounded="md" bg="white">
-          <Image  src={nickywebsites[0].fields.image.fields.file.url} alt="Segun Adebayo"/>
-          <Center h="50px" color="white">
-            <Text fontSize="2xl" color="black" fontWeight="extrabold">
-              {nickywebsites[0].fields.title}
-              </Text> 
-          </Center>
-          <Container  textAlign="justify">
-           {nickywebsites[0].fields.body}
-          </Container>
-        </GridItem>
-        <GridItem colSpan={3} boxShadow="md" p="6" rounded="md" bg="white">
-          <Image src={nickywebsites[1].fields.image.fields.file.url} alt='Dan Abramov' />
-        </GridItem>
-        <GridItem colSpan={3} boxShadow="md" p="6" rounded="md" bg="white">
-          <Center h="50px" color="white">
-           <Text fontSize="2xl" color="black" fontWeight="extrabold">
-             {nickywebsites[1].fields.title}
-             </Text> 
-          </Center>
-          <Container  textAlign="justify">
-            {nickywebsites[1].fields.body}
-          </Container>
-        </GridItem>
-      </Grid>  */}
-      {/* small bottom  */}
-      {/* <SimpleGrid mt="14" columns={[1, null, 2]} spacing="20px">
-          <Center  borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="10" color="white">
-            <SupportOffer />
-          </Center>
-          <Center  bg="pink.500"  as="button" boxShadow="md"  h="10" color="white">
-            <OutProject/>
-          </Center>
-          <Center borderRadius="5" bg="pink.500"  as="button" boxShadow="md"  h="10" color="white">
-            <FormEmail title="Contact" />
-          </Center>
-      </SimpleGrid> */}
-      {/* packages available  */}
       <SimpleGrid minChildWidth="120px" spacing="40px" >
           <Center p="5" fontSize="20" fontWeight="extrabold" borderBottomWidth="3px" borderBottomColor="pink.500">SUPPORT I CAN OFFER</Center>
       </SimpleGrid>

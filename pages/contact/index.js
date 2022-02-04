@@ -41,8 +41,8 @@ const Contact = () => {
                 </Box>
             </Box>
           </Center> */}
-          <Center bg='pink.400'  as="button" boxShadow="md"  color="white" >
-             <Box borderBottomRadius="md" color="pink.500" p="5px">
+          <Center bg='pink.500'  as="button" boxShadow="md"  color="white" >
+             <Box borderBottomRadius="md" color="pink.200" p="5px">
                 <Box  ml="50" mt="20">
                 <Box fontSize='xl' fontWeight="extrabold">Nicola Marshall-Sauvage</Box>
                 <Box color="#FFFF">Siem Reap</Box>
