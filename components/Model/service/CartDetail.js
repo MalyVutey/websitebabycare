@@ -22,7 +22,7 @@ function CartDetail({data}) {
 <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
   <ModalOverlay />
   <ModalContent>
-    <ModalHeader>What Can I Help You</ModalHeader>
+    {/* <ModalHeader>What Can I Help You</ModalHeader> */}
     <ModalCloseButton />
     <Center>
      {/* <Image 
@@ -33,7 +33,7 @@ function CartDetail({data}) {
     </Center>
     <ModalBody pb={6} textAlign="justify">
      <Text fontWeight='bold' mb='1rem'>{data.title}</Text>
-       {documentToReactComponents(data.body)}
+       {data.body}
     </ModalBody>
     <ModalFooter>
       <Button onClick={onClose} variant='ghost'>Back Action</Button>

@@ -1,17 +1,6 @@
 import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
 import { Grid,Image, GridItem,Box, Text,Center,Container,SimpleGrid  } from "@chakra-ui/react"
-import nurs from '../../image/nurs.jpeg'
-import nurs1 from '../../image/nurs.jpeg'
-import img1 from '../../image/img1.jpg'
-import img2 from '../../image/img2.jpg'
-import img3 from '../../image/img3.jpg'
-import img4 from '../../image/img6.jpg'
-import img5 from '../../image/img7.jpg'
-import img6 from '../../image/img6.jpg'
-import img7 from '../../image/img7.jpg'
-import img8 from '../../image/img8.jpg'
-import img9 from '../../image/img8.jpg'
 
 import { createClient } from 'contentful'
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -23,16 +12,18 @@ export async function getStaticProps() {
   })
   const res = await client.getEntries({content_type: "aboutService" })
   const supportAvailable = await client.getEntries({content_type: "supportAvailable" })
+  const converImage = await client.getEntries({content_type: "converImage"})
   
   return {
     props: {
       aboutServices: res.items,
-      supportAvailables: supportAvailable.items
+      supportAvailables: supportAvailable.items,
+      converImage: converImage.items
     },
     revalidate: 1
   }
 }
-const Service = ({aboutServices,supportAvailables}) => {
+const Service = ({aboutServices,supportAvailables,converImage}) => {
 
 
 
@@ -42,7 +33,10 @@ const Service = ({aboutServices,supportAvailables}) => {
     <title>Service</title>
      <meta name="keywords" content="ninjas" />
    </Head>
-   <Center  bg="pink.500"  color="white" mb="10px">
+    <Box>
+          <Image  src={"https:"+converImage[0]?.fields?.image?.fields?.file?.url} alt="log"/>
+      </Box>
+     <Center  bg="pink.500"  color="white" mb="10px">
        <Text fontSize="2xl" fontWeight="extrabold">Midwifery Services Cambodia</Text> 
       </Center>
       <Grid>
@@ -52,7 +46,7 @@ const Service = ({aboutServices,supportAvailables}) => {
            <Text fontSize="2xl" color="black" fontWeight="extrabold">{aboutServices[0].fields.title}</Text> 
           </Center>
           <Center  textAlign="justify">
-           {documentToReactComponents(aboutServices[0].fields.body)}
+           {aboutServices[0].fields.body}
           </Center>
         </GridItem>
       </Grid> 
@@ -68,7 +62,7 @@ const Service = ({aboutServices,supportAvailables}) => {
              <Image src={item.fields.image.fields.file.url} alt="Segun Adebayo"/>
               <Center fontWeight="extrabold">{item.fields.title}</Center>
               <Box textAlign="justify" noOfLines={10}>
-               {documentToReactComponents(item.fields.body)}
+               {item.fields.body}
               </Box>
               <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
                <CartDetail data={item.fields}/>

@@ -13,7 +13,6 @@ import OutProject from '../components/Model/home/OutProject'
 import { createClient } from 'contentful'
 import { Image } from '@chakra-ui/react'
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-
 import React from 'react'
 export async function getStaticProps() {
   const client = createClient({
@@ -23,17 +22,18 @@ export async function getStaticProps() {
   const res = await client.getEntries({content_type: "supportICanOffer" })
   const resgallary = await client.getEntries({content_type: "gallary" })
   const resmyImageAction = await client.getEntries({content_type: "myImageAction" })
-
+  const converImage = await client.getEntries({content_type: "converImage"})
   return {
     props: {
       supportICanOffers: res.items,
       Gallary :resgallary.items,
-      resmyImageActions: resmyImageAction.items
+      resmyImageActions: resmyImageAction.items,
+      converImage : converImage.items
     },
     revalidate: 1
   }
 }
-export default function Home({supportICanOffers,Gallary,resmyImageActions}) {
+export default function Home({supportICanOffers,Gallary,resmyImageActions,converImage}) {
   // #FF69B4
 const width_Box = {
   sm: "250px",
@@ -43,7 +43,7 @@ const width_Box = {
   "2xl": "460px",
 }
 
-// console.log(Gallary[0]?.fields?.image?.fields?.file?.url,"testin image")
+// console.log(converImage[0]?.fields?.image?.fields?.file?.url,"testin image")
 
 
  
@@ -53,6 +53,9 @@ const width_Box = {
         <title>Home</title>
         <meta name="keywords" content="ninjas" />
       </Head>
+      <Box>
+          <Image  src={"https:"+converImage[0]?.fields?.image?.fields?.file?.url} alt="log"/>
+      </Box>
       <SimpleGrid minChildWidth="120px" spacing="40px" >
           <Center p="5" fontSize="20" fontWeight="extrabold" borderBottomWidth="3px" borderBottomColor="pink.500">SUPPORT I CAN OFFER</Center>
       </SimpleGrid>
@@ -65,7 +68,7 @@ const width_Box = {
                <Image src={"https:"+item?.fields?.image?.fields?.file?.url} alt="Segun Adebayo"/>
                 <Center fontWeight="extrabold">{item?.fields?.title} </Center>
                 <Box textAlign="justify" noOfLines={10}>
-                  {documentToReactComponents(item.fields.body)}
+                  {item.fields.body}
                 </Box>
                 <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
                   <ReadMore data={item?.fields}/>
@@ -96,7 +99,7 @@ const width_Box = {
            <Text fontSize="2xl" color="black" fontWeight="extrabold">{resmyImageActions[0]?.fields?.title}</Text> 
           </Center>
           <Box textAlign="justify" >
-          {documentToReactComponents(resmyImageActions[0].fields.body)}
+          {resmyImageActions[0].fields.body}
           </Box>
         </GridItem>
     </Box>

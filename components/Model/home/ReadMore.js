@@ -34,8 +34,8 @@ function ReadMore({data}) {
        /> */}
     </Center>
     <ModalBody pb={6} textAlign="justify">
-     <Text fontWeight='bold' mb='1rem'> You can scroll the content behind the modal</Text>
-       {documentToReactComponents(data.body)}
+     <Text fontWeight='bold' mb='1rem'>{data.title}</Text>
+       {data.body}
     </ModalBody>
     <ModalFooter>
       <Button onClick={onClose} variant='ghost'>Back Action</Button>

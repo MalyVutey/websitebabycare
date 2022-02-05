@@ -20,11 +20,13 @@ function MyApp({ Component, pageProps }) {
   }
   const theme = extendTheme({ colors,breakpoints })
   return (
+    <ChakraProvider theme={theme}>
     <Layout>
-       <ChakraProvider theme={theme}>
+     
         <Component {...pageProps} />
-      </ChakraProvider>
+     
     </Layout>
+    </ChakraProvider>
   )
 }
 
