@@ -6,6 +6,7 @@ import { Grid, GridItem,Box, Text,Center } from "@chakra-ui/react"
 import { Flex, Spacer,Square,Image } from "@chakra-ui/react"
 import { createClient } from 'contentful'
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import Footer from '../../components/Footer'
 export async function getStaticProps() {
   const client = createClient({
     space: "tv804lyjxtpt",
@@ -23,24 +24,24 @@ export async function getStaticProps() {
   }
 const About = ({aboutdata,converImage}) => {
   const imageSize = {
-    sm: "50px",
-    md: "150px",
-    lg: "200px",
-    xl: "250px",
-    "2xl": "300px",
+    sm: "300px",
+    md: "400px",
+    lg: "500px",
+    xl: "500px",
+    "2xl": "500px",
   }
   const boxImage = {
-    sm: "50px",
-    md: "150px",
-    lg: "200px",
-    xl: "250px",
-    "2xl": "300px",
+    sm: "300px",
+    md: "400px",
+    lg: "500px",
+    xl: "500px",
+    "2xl": "500px",
   }
   const widthProfile = {
-    sm: "50px",
+    sm: "500px",
     md: "150px",
     lg: "200px",
-    xl: "250px",
+    xl: "500px",
     "2xl": "700px",
   }
  return ( 
@@ -76,14 +77,7 @@ const About = ({aboutdata,converImage}) => {
             </Box>
           </Center>
     </SimpleGrid>
-    {/* <GridItem colSpan={3} boxShadow="md" p="6" rounded="md" bg="white">
-      <Center h="50px" color="white">
-        <Text fontSize="2xl" color="black" fontWeight="extrabold"> {aboutdata[1].fields.title}</Text> 
-      </Center>
-      <Box textAlign="justify">
-       {aboutdata[1].fields.bodys}
-      </Box>
-    </GridItem> */}
+    <Footer/>
   </Box>
   );
 }

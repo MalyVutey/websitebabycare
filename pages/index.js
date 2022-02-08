@@ -14,6 +14,7 @@ import { createClient } from 'contentful'
 import { Image } from '@chakra-ui/react'
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import React from 'react'
+import Footer from '../components/Footer'
 export async function getStaticProps() {
   const client = createClient({
     space: "tv804lyjxtpt",
@@ -102,6 +103,7 @@ const width_Box = {
           {resmyImageActions[0].fields.body}
           </Box>
         </GridItem>
+      <Footer/>
     </Box>
   )
 }

@@ -28,8 +28,8 @@ const Layout = ({children}) => {
    <Navbar/>
    <div className="content">
        {children}
-    <Footer/>
    </div>
+   {/* <Footer/> */}
   </Box>
    
   );

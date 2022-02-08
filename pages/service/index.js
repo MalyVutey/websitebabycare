@@ -5,6 +5,7 @@ import { Grid,Image, GridItem,Box, Text,Center,Container,SimpleGrid  } from "@ch
 import { createClient } from 'contentful'
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import CartDetail from '../../components/Model/service/CartDetail'
+import Footer from '../../components/Footer';
 export async function getStaticProps() {
   const client = createClient({
     space: "tv804lyjxtpt",
@@ -74,6 +75,7 @@ const Service = ({aboutServices,supportAvailables,converImage}) => {
         })}
 
       </SimpleGrid>
+      <Footer/>
 </Box>
   );
 }
