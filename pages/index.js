@@ -64,14 +64,14 @@ const width_Box = {
         {/* cart one */}
         {supportICanOffers?.map((item,ind)=>{
           return(
-            <Center  key={ind}  bg="white.500"  as="button" boxShadow="md"  color="white" >
-             <Box borderBottomRadius="md" color="pink.500" p="5px">
+            <Center  key={ind}  as="button" boxShadow="md"  color="white" >
+             <Box borderBottomRadius="md" p="5px">
                <Image src={"https:"+item?.fields?.image?.fields?.file?.url} alt="Segun Adebayo"/>
-                <Center fontWeight="extrabold">{item?.fields?.title} </Center>
-                <Box textAlign="justify" noOfLines={10}>
+                <Center color="pink.500" fontWeight="extrabold">{item?.fields?.title} </Center>
+                <Box textAlign="justify" color="pink.500"  noOfLines={10}>
                   {item.fields.body}
                 </Box>
-                <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
+                <Center w="100%" as="button"  color="white" rounded="md">
                   <ReadMore data={item?.fields}/>
               </Center>
             </Box>

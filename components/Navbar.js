@@ -34,36 +34,6 @@ const Navbar = () => {
   }
  return ( 
 
-      // <Flex display={{sm:"none",xl: "block"}}>
-      //     <Box>
-      //        <Center 
-      //         color={location.pathname=== "/"? "#FFFF": ""}
-      //         bg={location.pathname=== "/"? "pink.500": ""}>
-      //          <Link href="/">Home</Link>
-      //        </Center>
-      //     </Box>
-      //     <Box>
-      //       <Center
-      //        color={location.pathname=== "/about"? "#FFFF": ""}
-      //        bg={location.pathname=== "/about"? "pink.500": ""}>
-      //         <Link href="/about">About</Link>
-      //       </Center>
-      //     </Box>
-      //     <Box> 
-      //       <Center
-      //        color={location.pathname=== "/service"? "#FFFF": ""}
-      //        bg={location.pathname=== "/service"? "pink.500": ""}>
-      //         <Link href="/service">Service</Link>
-      //       </Center>
-      //       </Box>
-      //     <Box> 
-      //       <Center
-      //        color={location.pathname=== "/contact"? "#FFFF": ""}
-      //        bg={location.pathname=== "/contact"? "pink.500": ""}>
-      //        <Link href="/contact">Contact</Link>
-      //       </Center>
-      //     </Box>
-      // </Flex>
 <Flex display={{sm:"block",xl: "block"}}>
 <Grid templateColumns='repeat(1, 1fr)' gap={4}>
   <GridItem w='100%' p="2" bg={"pink.300"}>
