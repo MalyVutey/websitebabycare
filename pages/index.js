@@ -31,7 +31,7 @@ export async function getStaticProps() {
       resmyImageActions: resmyImageAction.items,
       converImage : converImage.items
     },
-    revalidate: 1
+    revalidate: 4
   }
 }
 export default function Home({supportICanOffers,Gallary,resmyImageActions,converImage}) {
@@ -55,7 +55,7 @@ const width_Box = {
         <meta name="keywords" content="ninjas" />
       </Head>
       <Box>
-          <Image  src={"https:"+converImage[0]?.fields?.image?.fields?.file?.url} alt="log"/>
+          <Image height={900} width="100%" src={"https:"+converImage[0]?.fields?.image?.fields?.file?.url} alt="log"/>
       </Box>
       <SimpleGrid minChildWidth="120px" spacing="40px" >
           <Center p="5" fontSize="20" fontWeight="extrabold" borderBottomWidth="3px" borderBottomColor="pink.500">SUPPORT I CAN OFFER</Center>
@@ -64,11 +64,11 @@ const width_Box = {
         {/* cart one */}
         {supportICanOffers?.map((item,ind)=>{
           return(
-            <Center  key={ind}  as="button" boxShadow="md"  color="white" >
-             <Box borderBottomRadius="md" p="5px">
+            <Center  key={ind}  as="button" boxShadow="md" >
+             <Box borderBottomRadius="md" color="pink.500" p="5px">
                <Image src={"https:"+item?.fields?.image?.fields?.file?.url} alt="Segun Adebayo"/>
-                <Center color="pink.500" fontWeight="extrabold">{item?.fields?.title} </Center>
-                <Box textAlign="justify" color="pink.500"  noOfLines={10}>
+                <Center fontWeight="extrabold">{item?.fields?.title} </Center>
+                <Box textAlign="justify"  noOfLines={10}>
                   {item.fields.body}
                 </Box>
                 <Center w="100%" as="button"  color="white" rounded="md">
@@ -82,7 +82,7 @@ const width_Box = {
       </SimpleGrid>
       {/* Gallery */}
       <SimpleGrid minChildWidth="120px" spacing="40px" mt="20px">
-          <Center p="3" fontSize="20" fontWeight="extrabold" borderBottomWidth="3px" borderBottomColor="pink.500">Gallery</Center>
+          <Center p="3" fontSize="22" fontWeight="extrabold" borderBottomWidth="3px" borderBottomColor="pink.500">GALLARY</Center>
       </SimpleGrid>
       <SimpleGrid mt="5" columns={[2, null, 4]} spacing="20px">
           {Gallary?.map((item,index)=>{

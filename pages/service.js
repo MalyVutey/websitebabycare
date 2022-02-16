@@ -1,11 +1,11 @@
 import Head from 'next/head'
-import styles from '../../styles/Home.module.css'
+import styles from '../styles/Home.module.css'
 import { Grid,Image, GridItem,Box, Text,Center,Container,SimpleGrid  } from "@chakra-ui/react"
 
 import { createClient } from 'contentful'
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import CartDetail from '../../components/Model/service/CartDetail'
-import Footer from '../../components/Footer';
+import CartDetail from '../components/Model/service/CartDetail'
+import Footer from '../components/Footer';
 export async function getStaticProps() {
   const client = createClient({
     space: "tv804lyjxtpt",
@@ -35,7 +35,7 @@ const Service = ({aboutServices,supportAvailables,converImage}) => {
      <meta name="keywords" content="ninjas" />
    </Head>
     <Box>
-          <Image  src={"https:"+converImage[0]?.fields?.image?.fields?.file?.url} alt="log"/>
+        <Image  src={"https:"+converImage[0]?.fields?.image?.fields?.file?.url} alt="log"/>
       </Box>
      <Center  bg="pink.500"  color="white" mb="10px">
        <Text fontSize="2xl" fontWeight="extrabold">Midwifery Services Cambodia</Text> 
@@ -65,7 +65,7 @@ const Service = ({aboutServices,supportAvailables,converImage}) => {
               <Box textAlign="justify" noOfLines={10}>
                {item.fields.body}
               </Box>
-              <Center w="100%" as="button" bg="pink.500" color="white" rounded="md">
+              <Center w="100%" as="button"  color="white" rounded="md">
                <CartDetail data={item.fields}/>
               </Center>
             </Box>

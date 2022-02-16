@@ -16,7 +16,7 @@ function ReadMore({data}) {
 
  return (
   <>
-   <Center w="100%" as="button" bg="pink.500" 
+   <Center w="100%" as="button"  
    color="white" rounded="md"  
    onClick={onOpen}>
     Read more</Center>

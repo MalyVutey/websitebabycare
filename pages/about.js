@@ -1,12 +1,13 @@
+import React,{useState} from 'react'
 import Head from 'next/head'
-import styles from '../../styles/Home.module.css'
 import { SimpleGrid, Wrap, WrapItem } from "@chakra-ui/react"
 // import Image from 'next/image'
 import { Grid, GridItem,Box, Text,Center } from "@chakra-ui/react"
 import { Flex, Spacer,Square,Image } from "@chakra-ui/react"
 import { createClient } from 'contentful'
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import Footer from '../../components/Footer'
+import Footer from '../components/Footer'
+// import {db} from "../../api/firbase"
 export async function getStaticProps() {
   const client = createClient({
     space: "tv804lyjxtpt",
@@ -23,6 +24,22 @@ export async function getStaticProps() {
     }
   }
 const About = ({aboutdata,converImage}) => {
+  // const [image,setImage] = useState([]);
+  // const getImage = async() => {
+  //   const pro = await db?.collection('image_profile').onSnapshot
+  //  (querySnapshot => {
+  //     const item = [];
+  //     const id = []
+  //     querySnapshot.forEach(doc => {
+  //       item.push({...doc.data(), id: doc.id})
+  //     });
+  //     setImage(item)
+  //   });
+  //   }
+  //   console.log(image)
+  //   React.useEffect(()=>{
+  //     getImage()
+  //   },[])
   const imageSize = {
     sm: "300px",
     md: "400px",
@@ -44,6 +61,7 @@ const About = ({aboutdata,converImage}) => {
     xl: "500px",
     "2xl": "700px",
   }
+
  return ( 
   <Box bg={"#FFFF"}>
   <Head>

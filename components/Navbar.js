@@ -55,6 +55,7 @@ const Navbar = () => {
  
   <Link  href="/">
     <GridItem w='100%' p="2" 
+    as="button"
     bg={location.pathname=== "/"? "pink.400": ""}
     borderRadius="12"
     border='1px'
@@ -65,6 +66,7 @@ const Navbar = () => {
   </Link>
   <Link href="/about">
     <GridItem w='100%' p="2" 
+    as="button"
     bg={location.pathname=== "/about"? "pink.400": ""}
     borderRadius="12"
     border='1px'
@@ -74,6 +76,7 @@ const Navbar = () => {
   </Link>
   <Link href="/service">
     <GridItem w='100%' p="2" 
+    as="button"
     bg={location.pathname=== "/service"? "pink.500": ""}
     borderRadius="12"
     border='1px'
@@ -81,8 +84,9 @@ const Navbar = () => {
         <Center  color={location.pathname=== "/service"? "#FFFF": "pink.500"}>SERVICES</Center>
     </GridItem>
   </Link>
-  <Link href="/contact">
+  <Link href="/contact" >
     <GridItem w='100%' p="2" 
+     as="button"
      bg={location.pathname=== "/contact"? "pink.500": ""}
      borderRadius="12"
      border='1px'
@@ -90,6 +94,15 @@ const Navbar = () => {
         <Center  color={location.pathname=== "/contact"? "#FFFF": "pink.500"}>CONTACT</Center>
     </GridItem>
   </Link>
+  {/* <Link href="/admin">
+    <GridItem w='100%' p="2" 
+     bg={location.pathname=== "/admin"? "pink.500": ""}
+     borderRadius="12"
+     border='1px'
+     borderColor="red.500" >
+        <Center  color={location.pathname=== "/admin"? "#FFFF": "pink.500"}>ADMIN</Center>
+    </GridItem>
+  </Link> */}
 </Grid>
 </Flex>
 

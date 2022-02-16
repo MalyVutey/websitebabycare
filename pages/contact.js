@@ -1,9 +1,8 @@
 import Head from 'next/head'
-import styles from '../../styles/Home.module.css'
 import { Grid, SimpleGrid,Box, Text,Center,Image } from "@chakra-ui/react"
-import FormEmail from '../../components/Model/contact/FormEmail';
+import FormEmail from '../components/Model/contact/FormEmail';
 import { createClient } from 'contentful'
-import Footer from '../../components/Footer';
+import Footer from '../components/Footer';
 export async function getStaticProps() {
   const client = createClient({
     space: "tv804lyjxtpt",
@@ -21,7 +20,7 @@ const Contact = ({converImage}) => {
  return ( 
   <Box bg={"#FFFF"}>
   <Head>
-    <title>Contac</title>
+    <title>Contact</title>
      <meta name="keywords" content="ninjas" />
    </Head>
      <Box>
